@@ -1,18 +1,17 @@
-mammatus:
-  cronjobs: []
-#    - name: some_job
-#      class: Some\Class\FQCN
-#      schedule: "0 3 * * *"
-  deployments: []
-#    - name: some_worker
-#      command: mammatus-queue
-#      arguments:
-#        - Some\Class\FQCN
-#    - name: some_service
-#      command: mammatus-vhost
-#      arguments:
-#        - Some\Class\FQCN
-#      post: 666
+cronjobs: []
+#  - name: some_job
+#    class: Some\Class\FQCN
+#    schedule: "0 3 * * *"
+deployments: []
+#  - name: some_worker
+#    command: mammatus-queue
+#    arguments:
+#      - Some\Class\FQCN
+#  - name: some_service
+#    command: mammatus-vhost
+#    arguments:
+#      - Some\Class\FQCN
+#    post: 666
 
 env: {}
 #  key: value
@@ -23,6 +22,7 @@ secrets: []
 image:
   repository: ghcr.io/LOGIN/REPO
   pullPolicy: IfNotPresent
+  tag: dev
 
 resources:
   cpu: 100m
