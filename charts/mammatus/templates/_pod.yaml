@@ -2,7 +2,7 @@
 {{- define "mammatus.pod" -}}
 containers:
   - name: {{ .name }}
-    image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     imagePullPolicy: {{ .Values.image.pullPolicy }}
     command:
       - php
@@ -25,7 +25,7 @@ containers:
 {{- define "mammatus.env" -}}
 env:
   - name: RELEASE_TAG
-    value: {{ .Chart.AppVersion }}
+    value: {{ .Values.image.tag }}
   - name: POD_NAME
     valueFrom:
       fieldRef:

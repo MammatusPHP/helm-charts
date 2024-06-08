@@ -1,4 +1,4 @@
-{{- range .Values.mammatus.deployments }}
+{{- range .Values.deployments }}
 ---
 apiVersion: apps/v1
 kind: Deployment

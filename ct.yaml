@@ -3,5 +3,5 @@ target-branch: main
 chart-dirs:
   - charts
 chart-repos:
-  - "WyriHaximusNet=https://helm.wyrihaximus.net"
+  - "MammatusPHP=https://mammatusphp.github.io/helm-charts/"
 debug: true
