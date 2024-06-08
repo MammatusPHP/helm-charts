@@ -1,0 +1,26 @@
+{{- range .Values.mammatus.cronjobs }}
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ .name }}
+  labels:
+    app.kubernetes.io/name: {{ include "mammatus.name" $ }}
+    app.kubernetes.io/instance: {{ .name }}
+spec:
+{{- if eq $.Chart.AppVersion "dev" }}
+  schedule: "* * * * *"
+{{- else }}
+  schedule: "{{ .schedule }}"
+{{- end }}
+  concurrencyPolicy: Forbid
+  failedJobsHistoryLimit: 3
+  successfulJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      template:
+        spec:
+          restartPolicy: Never
+          {{- include "mammatus.pod" (dict "Chart" $.Chart "Values" $.Values "name" .name "arguments" .arguments) | nindent 10 }}
+{{- end }}
