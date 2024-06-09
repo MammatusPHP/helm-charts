@@ -1,3 +1,5 @@
+release: dev
+
 cronjobs: []
 #  - name: some_job
 #    class: Some\Class\FQCN
@@ -22,7 +24,6 @@ secrets: []
 image:
   repository: ghcr.io/LOGIN/REPO
   pullPolicy: IfNotPresent
-  tag: dev
 
 resources:
   cpu: 100m
