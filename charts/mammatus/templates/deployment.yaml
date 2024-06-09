@@ -18,5 +18,8 @@ spec:
         app.kubernetes.io/name: {{ include "mammatus.name" $ }}
         app.kubernetes.io/instance: {{ .name }}
     spec:
+      {{- with $.Values.priorityClassName }}
+      priorityClassName: "{{ . }}"
+      {{- end }}
       {{- include "mammatus.pod" (dict "Chart" $.Chart "Values" $.Values "name" .name "arguments" .arguments) | nindent 6 }}
 {{- end }}
