@@ -6,11 +6,11 @@ deployments: []
 #  - name: some_worker
 #    command: mammatus-queue
 #    arguments:
-#      - Some\Class\FQCN
+#      - Some\OtherClass\FQCN
 #  - name: some_service
 #    command: mammatus-vhost
 #    arguments:
-#      - Some\Class\FQCN
+#      - Some\AnotherOtherClass\FQCN
 #    post: 666
 
 env: {}
@@ -27,6 +27,8 @@ image:
 resources:
   cpu: 100m
   memmory: 256Mi
+
+priorityClassName: ""
 
 volumes: {}
 #  name:

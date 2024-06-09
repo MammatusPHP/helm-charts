@@ -21,6 +21,9 @@ spec:
       backoffLimit: 0
       template:
         spec:
+          {{- with $.Values.priorityClassName }}
+          priorityClassName: "{{ . }}"
+          {{- end }}
           restartPolicy: Never
           {{- include "mammatus.pod" (dict "Chart" $.Chart "Values" $.Values "name" .name "arguments" (list .class) "command" "mammatus-cron") | nindent 10 }}
 {{- end }}
