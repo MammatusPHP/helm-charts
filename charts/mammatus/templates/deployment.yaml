@@ -21,5 +21,5 @@ spec:
       {{- with $.Values.priorityClassName }}
       priorityClassName: "{{ . }}"
       {{- end }}
-      {{- include "mammatus.pod" (dict "Chart" $.Chart "Values" $.Values "name" .name "arguments" .arguments) | nindent 6 }}
+      {{- include "mammatus.pod" (dict "Chart" $.Chart "Values" $.Values "name" .name "arguments" .arguments "command" .command) | nindent 6 }}
 {{- end }}
