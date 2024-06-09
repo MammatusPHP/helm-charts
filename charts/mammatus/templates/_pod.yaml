@@ -7,9 +7,9 @@ containers:
     command:
       - php
       - /opt/app/vendor/bin/{{ .command | default "mamatus"}}
-            {{- range .arguments }}
+{{- range .arguments }}
       - "{{ . | replace "\\" "\\\\" }}"
-            {{- end }}
+{{- end }}
 {{- include "mammatus.env" . | nindent 4 }}
     resources:
       limits:
