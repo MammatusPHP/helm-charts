@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/name: {{ include "mammatus.name" $ }}
     app.kubernetes.io/instance: {{ .name }}
 spec:
-{{- if eq $.Chart.AppVersion "dev" }}
+{{- if eq $.Values.release "dev" }}
   schedule: "* * * * *"
 {{- else }}
   schedule: "{{ .schedule }}"
