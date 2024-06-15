@@ -14,14 +14,14 @@ containers:
 {{- $resourcesSet := false }}
 {{- range .addOns }}
 {{- if eq .type "container" }}
-{{- include .helper .arguments | nindent 4 }}
+{{- include .helper (dict "arguments" .arguments) | nindent 4 }}
 {{- if eq .helper "mammatus.container.resources" }}
 {{- $resourcesSet = true }}
 {{- end }}
 {{- end }}
 {{- end }}
 {{- if eq $resourcesSet false }}
-{{- include "mammatus.container.resources" (dict "cpu" $.Values.resources.cpu "memory" $.Values.resources.memmory) | nindent 4 }}
+{{- include "mammatus.container.resources" (dict "arguments" (dict "cpu" $.Values.resources.cpu "memory" $.Values.resources.memmory)) | nindent 4 }}
 {{- end }}
 {{- include "mammatus.volumeMounts" . | nindent 4 }}
 {{ include "mammatus.volumes" . }}

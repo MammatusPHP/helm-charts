@@ -21,9 +21,33 @@ deployments: []
 #        arguments:
 #          cpu: 128
 #          memory: 64Gi
-#      - helper: mammatus.deployment.someshit
-#        type: deployment
-#        arguments: []
+#      - type: deployment
+#        helper: mammatus.keda.deployment
+#        arguments:
+#          idleReplicaCount: 0
+#          minReplicaCount: 1
+#          maxReplicaCount: 5
+#          cooldownPeriod: 1
+#          advanced:
+#            horizontalPodAutoscalerConfig:
+#              behavior:
+#                scaleUp:
+#                  policies:
+#                    type: Pods
+#                    value: 1
+#                    periodSeconds: 1
+#                scaleDown:
+#                  policies:
+#                    type: Pods
+#                    value: 1
+#                    periodSeconds: 5
+#          triggers:
+#            - type: rabbitmq
+#              mode: QueueLength
+#              authenticationRef:
+#                parameter: host
+#                name: rabbitmq-scaler-credentials-images.blp-to-png
+#                key: URL
 #  - name: some_service
 #    command: mammatus-vhost
 #    arguments:
