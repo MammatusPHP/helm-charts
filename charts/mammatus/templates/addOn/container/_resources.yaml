@@ -1,0 +1,11 @@
+{{/* vim: set filetype=mustache: */}}
+{{- define "mammatus.container.resources" -}}
+resources:
+  limits:
+    cpu: {{ .cpu }}
+    memory: {{ .memory }}
+  requests:
+    cpu: {{ .cpu }}
+    memory: {{ .memory }}
+{{- end -}}
+

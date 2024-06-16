@@ -1,0 +1,8 @@
+{{- range .Values.cronjobs }}
+{{- range .addOns }}
+{{- if eq .type "cronjob" }}
+---
+{{- include .helper .arguments }}
+{{- end }}
+{{- end }}
+{{- end }}
