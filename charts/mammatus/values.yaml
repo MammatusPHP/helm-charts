@@ -4,16 +4,36 @@ cronjobs: []
 #  - name: some_job
 #    class: Some\Class\FQCN
 #    schedule: "0 3 * * *"
+#    addOns:
+#      - helper: mammatus.container.resources
+#        type: container
+#        arguments:
+#          cpu: 1
+#          memory: 1Gi
 deployments: []
 #  - name: some_worker
 #    command: mammatus-queue
 #    arguments:
 #      - Some\OtherClass\FQCN
+#    addOns:
+#      - helper: mammatus.container.resources
+#        type: container
+#        arguments:
+#          cpu: 128
+#          memory: 64Gi
+#      - helper: mammatus.deployment.someshit
+#        type: deployment
+#        arguments: []
 #  - name: some_service
 #    command: mammatus-vhost
 #    arguments:
 #      - Some\AnotherOtherClass\FQCN
 #    post: 666
+#    addOns: []
+#      - helper: mammatus.container.resources
+#        arguments:
+#          cpu: 100m
+#          memory: 128Mi
 
 env: {}
 #  key: value

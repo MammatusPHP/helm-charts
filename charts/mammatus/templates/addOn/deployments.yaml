@@ -1,0 +1,8 @@
+{{- range .Values.deployments }}
+{{- range .addOns }}
+{{- if eq .type "deployment" }}
+---
+{{- include .helper .arguments }}
+{{- end }}
+{{- end }}
+{{- end }}

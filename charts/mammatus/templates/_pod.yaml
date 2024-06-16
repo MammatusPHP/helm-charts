@@ -11,29 +11,23 @@ containers:
       - "{{ . | replace "\\" "\\\\" }}"
 {{- end }}
 {{- include "mammatus.env" . | nindent 4 }}
-    resources:
-      limits:
-        cpu: {{ $.Values.resources.cpu }}
-        memory: {{ $.Values.resources.memmory }}
-      requests:
-        cpu: {{ $.Values.resources.cpu }}
-        memory: {{ $.Values.resources.memmory }}
+{{- $resourcesSet := false }}
+{{- range .addOns }}
+{{- if eq .type "container" }}
+{{- include .helper .arguments | nindent 4 }}
+{{- if eq .helper "mammatus.container.resources" }}
+{{- $resourcesSet = true }}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- if eq $resourcesSet false }}
+{{- include "mammatus.container.resources" (dict "cpu" $.Values.resources.cpu "memory" $.Values.resources.memmory) | nindent 4 }}
+{{- end }}
 {{- include "mammatus.volumeMounts" . | nindent 4 }}
 {{ include "mammatus.volumes" . }}
 {{- end }}
 
 {{- define "mammatus.env" -}}
-env:
-  - name: RELEASE_TAG
-    value: {{ .Values.release }}
-  - name: POD_NAME
-    valueFrom:
-      fieldRef:
-        fieldPath: "metadata.name"
-  - name: POD_NAMESPACE
-    valueFrom:
-      fieldRef:
-        fieldPath: "metadata.namespace"
 {{- if or .Values.env .Values.secrets }}
 envFrom:
 {{- end }}
@@ -58,6 +52,17 @@ volumeMounts:
     {{ $options.volumeMountOptions | toYaml }}
 {{- end -}}
 {{- end -}}
+env:
+  - name: RELEASE_TAG
+    value: {{ .Values.release }}
+  - name: POD_NAME
+    valueFrom:
+      fieldRef:
+        fieldPath: "metadata.name"
+  - name: POD_NAMESPACE
+    valueFrom:
+      fieldRef:
+        fieldPath: "metadata.namespace"
 {{- end -}}
 
 {{- define "mammatus.volumes" -}}
@@ -69,4 +74,3 @@ volumes:
 {{- end -}}
 {{- end -}}
 {{- end -}}
-
