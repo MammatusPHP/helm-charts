@@ -42,16 +42,6 @@ envFrom:
   - configMapRef:
       name: env
 {{- end }}
-{{- end -}}
-
-{{- define "mammatus.volumeMounts" -}}
-{{ if .Values.volumes }}
-volumeMounts:
-{{- range $name, $options := .Values.volumes }}
-  - name: {{ $name }}
-    {{ $options.volumeMountOptions | toYaml }}
-{{- end -}}
-{{- end -}}
 env:
   - name: RELEASE_TAG
     value: {{ .Values.release }}
@@ -63,6 +53,16 @@ env:
     valueFrom:
       fieldRef:
         fieldPath: "metadata.namespace"
+{{- end -}}
+
+{{- define "mammatus.volumeMounts" -}}
+{{ if .Values.volumes }}
+volumeMounts:
+{{- range $name, $options := .Values.volumes }}
+  - name: {{ $name }}
+    {{ $options.volumeMountOptions | toYaml }}
+{{- end -}}
+{{- end -}}
 {{- end -}}
 
 {{- define "mammatus.volumes" -}}
