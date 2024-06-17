@@ -2,10 +2,10 @@
 {{- define "mammatus.container.resources" -}}
 resources:
   limits:
-    cpu: {{ .cpu }}
-    memory: {{ .memory }}
+    cpu: {{ .arguments.cpu }}
+    memory: {{ .arguments.memory }}
   requests:
-    cpu: {{ .cpu }}
-    memory: {{ .memory }}
+    cpu: {{ .arguments.cpu }}
+    memory: {{ .arguments.memory }}
 {{- end -}}
 

@@ -1,8 +1,9 @@
 {{- range .Values.deployments }}
+{{- $deploymentName := .name }}
 {{- range .addOns }}
 {{- if eq .type "deployment" }}
 ---
-{{- include .helper .arguments }}
+{{- include .helper (dict "arguments" .arguments "name" $deploymentName)  }}
 {{- end }}
 {{- end }}
 {{- end }}
