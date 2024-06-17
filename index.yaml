@@ -1,6 +1,35 @@
 apiVersion: v1
 entries:
+  keda:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-06-17T18:04:25.981982304Z"
+    description: Keda extension chart
+    digest: 5672a28f3ac433b9c7c7236a22df1080f07c2d2d8a3ab483f5491d8bac7ba899
+    maintainers:
+    - email: helm@ceesjankiewiet.nl
+      name: WyriHaximus
+      url: https://wyrihaximus.net/
+    name: keda
+    type: library
+    urls:
+    - https://github.com/MammatusPHP/helm-charts/releases/download/keda-0.0.1/keda-0.0.1.tgz
+    version: 0.0.1
   mammatus:
+  - apiVersion: v2
+    appVersion: 0.0.9
+    created: "2024-06-17T18:04:26.100553968Z"
+    description: MammatusPHP Chart
+    digest: 955f7437d61d34c8f1050e68d112810ee7d42550d6932940cf67ebf3eb50c0d0
+    maintainers:
+    - email: helm@ceesjankiewiet.nl
+      name: WyriHaximus
+      url: https://wyrihaximus.net/
+    name: mammatus
+    type: application
+    urls:
+    - https://github.com/MammatusPHP/helm-charts/releases/download/mammatus-0.0.9/mammatus-0.0.9.tgz
+    version: 0.0.9
   - apiVersion: v2
     appVersion: 0.0.8
     created: "2024-06-10T11:39:32.662124381Z"
@@ -113,4 +142,4 @@ entries:
     urls:
     - https://github.com/MammatusPHP/helm-charts/releases/download/mammatus-0.0.1/mammatus-0.0.1.tgz
     version: 0.0.1
-generated: "2024-06-10T11:39:32.662159216Z"
+generated: "2024-06-17T18:04:26.100597679Z"
