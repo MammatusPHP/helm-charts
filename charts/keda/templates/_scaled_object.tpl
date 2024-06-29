@@ -22,8 +22,7 @@ spec:
   triggers:
 {{- range $index, $trigger := .arguments.triggers }}
     - type: {{ $trigger.type }}
-      mode: {{ $trigger.mode }}
-      metadata: {{ $trigger.metadata }}
+      metadata: {{ $trigger.metadata|toYaml|nindent 8 }}
       authenticationRef:
         name: {{ $deploymentName }}-{{ $index }}
 {{- end }}
