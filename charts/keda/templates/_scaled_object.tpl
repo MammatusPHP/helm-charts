@@ -23,6 +23,7 @@ spec:
 {{- range $index, $trigger := .arguments.triggers }}
     - type: {{ $trigger.type }}
       mode: {{ $trigger.mode }}
+      metadata: {{ $trigger.metadata }}
       authenticationRef:
         name: {{ $deploymentName }}-{{ $index }}
 {{- end }}
