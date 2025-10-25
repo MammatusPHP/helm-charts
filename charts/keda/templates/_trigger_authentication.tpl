@@ -5,7 +5,7 @@ Expand the name of the chart.
 {{- define "mammatus.keda.trigger_authentication" -}}
 {{- $deploymentName := .name }}
 {{- range $index, $trigger := .arguments.triggers }}
-{{- if .authenticationRef }}
+{{- if $trigger.authenticationRef }}
 ---
 apiVersion: keda.sh/v1alpha1
 kind: TriggerAuthentication
