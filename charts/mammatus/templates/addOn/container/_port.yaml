@@ -1,0 +1,6 @@
+{{/* vim: set filetype=mustache: */}}
+{{- define "mammatus.container.port" -}}
+- name: {{ .arguments.name }}
+  containerPort: {{ .arguments.containerPort }}
+{{- end -}}
+

@@ -1,0 +1,21 @@
+{{/* vim: set filetype=mustache: */}}
+{{- define "mammatus.container.probe" -}}
+startupProbe:
+  httpGet:
+    path: {{ .arguments.path }}
+    port: {{ .arguments.vhost }}
+  failureThreshold: 30
+  periodSeconds: 1
+livenessProbe:
+  httpGet:
+    path: {{ .arguments.path }}
+    port: {{ .arguments.vhost }}
+  failureThreshold: 3
+  periodSeconds: 1
+readinessProbe:
+  httpGet:
+    path: {{ .arguments.path }}
+    port: {{ .arguments.vhost }}
+  failureThreshold: 3
+  periodSeconds: 1
+{{- end -}}
