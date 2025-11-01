@@ -12,9 +12,15 @@ containers:
 {{- end }}
 {{- include "mammatus.env" . | nindent 4 }}
 {{- $resourcesSet := false }}
+{{- $portsSet := false }}
 {{- range .addOns }}
 {{- if eq .type "container" }}
+{{- if not (eq .helper "mammatus.container.port") }}
 {{- include .helper (dict "arguments" .arguments) | nindent 4 }}
+{{- end }}
+{{- if eq .helper "mammatus.container.port" }}
+{{- $portsSet = true }}
+{{- end }}
 {{- if eq .helper "mammatus.container.resources" }}
 {{- $resourcesSet = true }}
 {{- end }}
@@ -22,6 +28,16 @@ containers:
 {{- end }}
 {{- if eq $resourcesSet false }}
 {{- include "mammatus.container.resources" (dict "arguments" (dict "cpu" $.Values.resources.cpu "memory" $.Values.resources.memmory)) | nindent 4 }}
+{{- end }}
+{{- if eq $portsSet true }}
+    ports:
+{{- range .addOns }}
+{{- if eq .type "container" }}
+{{- if eq .helper "mammatus.container.port" }}
+{{- include .helper (dict "arguments" .arguments) | nindent 6 }}
+{{- end }}
+{{- end }}
+{{- end }}
 {{- end }}
 {{- include "mammatus.volumeMounts" . | nindent 4 }}
 {{ include "mammatus.volumes" . }}

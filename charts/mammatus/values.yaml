@@ -10,6 +10,16 @@ cronjobs: []
 #        arguments:
 #          cpu: 1
 #          memory: 1Gi
+#      - helper: mammatus.container.port
+#        type: container
+#        arguments:
+#          name: healthz
+#          containerPort: 9666
+#      - helper: mammatus.container.probe
+#        type: container
+#        arguments:
+#          path: /healthz
+#          vhost: healthz
 deployments: []
 #  - name: some_worker
 #    command: mammatus-queue
@@ -48,16 +58,36 @@ deployments: []
 #                parameter: host
 #                name: rabbitmq-scaler-credentials-images.blp-to-png
 #                key: URL
+#      - helper: mammatus.container.port
+#        type: container
+#        arguments:
+#          name: healthz
+#          containerPort: 9666
+#      - helper: mammatus.container.probe
+#        type: container
+#        arguments:
+#          path: /healthz
+#          vhost: healthz
 #  - name: some_service
 #    command: mammatus-vhost
 #    arguments:
 #      - Some\AnotherOtherClass\FQCN
-#    post: 666
-#    addOns: []
+#    addOns:
 #      - helper: mammatus.container.resources
+#        type: container
 #        arguments:
 #          cpu: 100m
 #          memory: 128Mi
+#      - helper: mammatus.container.port
+#        type: container
+#        arguments:
+#          name: healthz
+#          containerPort: 9666
+#      - helper: mammatus.container.probe
+#        type: container
+#        arguments:
+#          path: /healthz
+#          vhost: healthz
 
 env: {}
 #  key: value
