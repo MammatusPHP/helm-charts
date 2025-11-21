@@ -18,8 +18,15 @@ cronjobs: []
 #      - helper: mammatus.container.probe
 #        type: container
 #        arguments:
-#          path: /healthz
-#          vhost: healthz
+#          startUp:
+#            path: /healthz
+#           vhost: healthz
+#          liveness:
+#            path: /healthz
+#           vhost: healthz
+#          readiness:
+#            path: /healthz
+#           vhost: healthz
 deployments: []
 #  - name: some_worker
 #    command: mammatus-queue
@@ -66,8 +73,15 @@ deployments: []
 #      - helper: mammatus.container.probe
 #        type: container
 #        arguments:
-#          path: /healthz
-#          vhost: healthz
+#          startUp:
+#            path: /healthz
+#           vhost: healthz
+#          liveness:
+#            path: /healthz
+#           vhost: healthz
+#          readiness:
+#            path: /healthz
+#           vhost: healthz
 #  - name: some_service
 #    command: mammatus-vhost
 #    arguments:
@@ -86,8 +100,15 @@ deployments: []
 #      - helper: mammatus.container.probe
 #        type: container
 #        arguments:
-#          path: /healthz
-#          vhost: healthz
+#          startUp:
+#            path: /healthz
+#           vhost: healthz
+#          liveness:
+#            path: /healthz
+#           vhost: healthz
+#          readiness:
+#            path: /healthz
+#           vhost: healthz
 
 env: {}
 #  key: value

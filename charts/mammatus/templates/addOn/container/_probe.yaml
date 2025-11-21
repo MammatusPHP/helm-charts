@@ -2,20 +2,20 @@
 {{- define "mammatus.container.probe" -}}
 startupProbe:
   httpGet:
-    path: {{ .arguments.path }}
-    port: {{ .arguments.vhost }}
+    path: {{ .arguments.startUp.path }}
+    port: {{ .arguments.startUp.vhost }}
   failureThreshold: 30
   periodSeconds: 1
 livenessProbe:
   httpGet:
-    path: {{ .arguments.path }}
-    port: {{ .arguments.vhost }}
+    path: {{ .arguments.liveness.path }}
+    port: {{ .arguments.liveness.vhost }}
   failureThreshold: 3
   periodSeconds: 1
 readinessProbe:
   httpGet:
-    path: {{ .arguments.path }}
-    port: {{ .arguments.vhost }}
+    path: {{ .arguments.readiness.path }}
+    port: {{ .arguments.readiness.vhost }}
   failureThreshold: 3
   periodSeconds: 1
 {{- end -}}
