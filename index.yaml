@@ -73,6 +73,20 @@ entries:
     version: 0.0.1
   mammatus:
   - apiVersion: v2
+    appVersion: 0.0.14
+    created: "2025-12-28T11:05:02.942885464Z"
+    description: MammatusPHP Chart
+    digest: 18ac9744883dea743eec912dbb409ec5888a79cf77df8ff82b9a94fe8a34f820
+    maintainers:
+    - email: helm@ceesjankiewiet.nl
+      name: WyriHaximus
+      url: https://wyrihaximus.net/
+    name: mammatus
+    type: application
+    urls:
+    - https://github.com/MammatusPHP/helm-charts/releases/download/mammatus-0.0.14/mammatus-0.0.14.tgz
+    version: 0.0.14
+  - apiVersion: v2
     appVersion: 0.0.13
     created: "2025-12-28T10:44:10.641202115Z"
     description: MammatusPHP Chart
@@ -254,4 +268,4 @@ entries:
     urls:
     - https://github.com/MammatusPHP/helm-charts/releases/download/mammatus-0.0.1/mammatus-0.0.1.tgz
     version: 0.0.1
-generated: "2025-12-28T10:44:10.641301972Z"
+generated: "2025-12-28T11:05:02.942982154Z"
