@@ -1,0 +1,4 @@
+{{/* vim: set filetype=mustache: */}}
+{{- define "mammatus.pod.priorityClassName" -}}
+priorityClassName: "{{ .priorityClassName }}"
+{{- end -}}
