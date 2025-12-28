@@ -2,7 +2,7 @@
 {{- define "mammatus.pod" -}}
 {{- range .addOns }}
 {{- if eq .type "pod" }}
-{{- include .helper (dict "arguments" .arguments) | nindent 4 }}
+{{- include .helper (dict "arguments" .arguments) }}
 {{- end }}
 {{- end }}
 containers:
