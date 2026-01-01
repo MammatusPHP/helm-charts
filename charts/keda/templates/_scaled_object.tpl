@@ -14,9 +14,15 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: {{ .name }}
+{{- if eq $.Values.release "dev" }}
+  idleReplicaCount: 0
+  minReplicaCount: 1
+  maxReplicaCount: 1
+{{- else }}
   idleReplicaCount: {{ .arguments.idleReplicaCount }}
   minReplicaCount: {{ .arguments.minReplicaCount }}
   maxReplicaCount: {{ .arguments.maxReplicaCount }}
+{{- end }}
   cooldownPeriod: {{ .arguments.cooldownPeriod }}
   advanced: {{ .arguments.advanced|toYaml|nindent 4 }}
   triggers:
