@@ -14,7 +14,7 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: {{ .name }}
-{{- if eq $.Values.release "dev" }}
+{{- if eq $.Values.mammatus.release "dev" }}
   idleReplicaCount: 0
   minReplicaCount: 1
   maxReplicaCount: 1
