@@ -13,6 +13,9 @@ spec:
 {{- else }}
   schedule: "{{ .schedule }}"
 {{- end }}
+{{- with (default "UTC" .timeZone) }}
+  timeZone: "{{ . }}"
+{{- end }}
   concurrencyPolicy: Forbid
   failedJobsHistoryLimit: 3
   successfulJobsHistoryLimit: 3
