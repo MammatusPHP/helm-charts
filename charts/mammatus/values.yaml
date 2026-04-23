@@ -4,6 +4,7 @@ cronjobs: []
 #  - name: some_job
 #    class: Some\Class\FQCN
 #    schedule: "0 3 * * *"
+#    timeZone: "Europe/Amsterdam"
 #    addOns:
 #      - helper: mammatus.container.resources
 #        type: container
@@ -20,13 +21,13 @@ cronjobs: []
 #        arguments:
 #          startUp:
 #            path: /healthz
-#           vhost: healthz
+#            vhost: healthz
 #          liveness:
 #            path: /healthz
-#           vhost: healthz
+#            vhost: healthz
 #          readiness:
 #            path: /healthz
-#           vhost: healthz
+#            vhost: healthz
 deployments: []
 #  - name: some_worker
 #    command: mammatus-queue
@@ -75,13 +76,13 @@ deployments: []
 #        arguments:
 #          startUp:
 #            path: /healthz
-#           vhost: healthz
+#            vhost: healthz
 #          liveness:
 #            path: /healthz
-#           vhost: healthz
+#            vhost: healthz
 #          readiness:
 #            path: /healthz
-#           vhost: healthz
+#            vhost: healthz
 #  - name: some_service
 #    command: mammatus-vhost
 #    arguments:
@@ -102,13 +103,13 @@ deployments: []
 #        arguments:
 #          startUp:
 #            path: /healthz
-#           vhost: healthz
+#            vhost: healthz
 #          liveness:
 #            path: /healthz
-#           vhost: healthz
+#            vhost: healthz
 #          readiness:
 #            path: /healthz
-#           vhost: healthz
+#            vhost: healthz
 
 env: {}
 #  key: value
