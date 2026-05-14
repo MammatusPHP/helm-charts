@@ -13,9 +13,7 @@ spec:
 {{- else }}
   schedule: "{{ .schedule }}"
 {{- end }}
-{{- with (default "Etc/UTC" .timeZone) }}
-  timeZone: "{{ . }}"
-{{- end }}
+  timeZone: "{{ default $.Values.timeZone .timeZone }}"
   concurrencyPolicy: Forbid
   failedJobsHistoryLimit: 3
   successfulJobsHistoryLimit: 3

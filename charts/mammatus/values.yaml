@@ -111,6 +111,7 @@ deployments: []
 #            path: /healthz
 #            vhost: healthz
 
+timeZone: "Etc/UTC"
 env: {}
 #  key: value
 secrets: []
