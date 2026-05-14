@@ -28,6 +28,15 @@ cronjobs: []
 #          readiness:
 #            path: /healthz
 #            vhost: healthz
+#      - helper: mammatus.pod.priorityClassName
+#        type: pod
+#        arguments:
+#          priorityClassName: "high"
+#      - helper: mammatus.pod.nodeSelector
+#        type: pod
+#        arguments:
+#          key: "label-name"
+#          value: "label-value"
 deployments: []
 #  - name: some_worker
 #    command: mammatus-queue
@@ -83,6 +92,15 @@ deployments: []
 #          readiness:
 #            path: /healthz
 #            vhost: healthz
+#      - helper: mammatus.pod.nodeSelector
+#        type: pod
+#        arguments:
+#          key: "label-name"
+#          value: "label-value"
+#      - helper: mammatus.pod.priorityClassName
+#        type: pod
+#        arguments:
+#          priorityClassName: "high"
 #  - name: some_service
 #    command: mammatus-vhost
 #    arguments:
@@ -98,6 +116,11 @@ deployments: []
 #        arguments:
 #          name: healthz
 #          containerPort: 9666
+#      - helper: mammatus.pod.nodeSelector
+#        type: pod
+#        arguments:
+#          key: "label-name"
+#          value: "label-value"
 #      - helper: mammatus.container.probe
 #        type: container
 #        arguments:
