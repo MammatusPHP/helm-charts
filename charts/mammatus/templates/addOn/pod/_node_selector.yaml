@@ -1,5 +1,5 @@
 {{/* vim: set filetype=mustache: */}}
-{{- define "mammatus.pod.nodeSelector" -}}
+{{ define "mammatus.pod.nodeSelector" }}
 nodeSelector:
   {{ .arguments.key|quote }}: {{ .arguments.value|quote }}
-{{- end -}}
+{{ end }}
