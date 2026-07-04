@@ -116,6 +116,11 @@ deployments: []
 #        arguments:
 #          name: healthz
 #          containerPort: 9666
+#      - helper: mammatus.container.port
+#        type: container
+#        arguments:
+#          name: frontpage
+#          containerPort: 6969
 #      - helper: mammatus.pod.nodeSelector
 #        type: pod
 #        arguments:
@@ -133,6 +138,10 @@ deployments: []
 #          readiness:
 #            path: /healthz
 #            vhost: healthz
+services: []
+#  - name: frontpage
+#    port: 6969
+#    group: some_service
 
 timeZone: "Etc/UTC"
 env: {}
