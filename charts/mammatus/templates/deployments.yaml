@@ -17,6 +17,9 @@ spec:
       labels:
         app.kubernetes.io/name: {{ include "mammatus.name" $ }}
         app.kubernetes.io/instance: {{ .name }}
+        {{- with $.Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
       {{- with $.Values.podAnnotations }}
       annotations:
         {{- toYaml . | nindent 8 }}

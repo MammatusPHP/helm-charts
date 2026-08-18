@@ -160,6 +160,10 @@ resources:
 
 priorityClassName: ""
 
+# Anything colliding with the `app.kubernetes.io/name` and `app.kubernetes.io/instance` labels is rejected by the API server as the pods no longer match their selector
+podLabels: {}
+#  example.com/label: value
+
 podAnnotations: {}
 #  example.com/annotation: value
 

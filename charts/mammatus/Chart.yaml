@@ -2,8 +2,8 @@ apiVersion: v2
 name: mammatus
 description: MammatusPHP Chart
 type: application
-version: 0.0.20
-appVersion: 0.0.20
+version: 0.0.21
+appVersion: 0.0.21
 maintainers:
   - name: WyriHaximus
     email: helm@ceesjankiewiet.nl
