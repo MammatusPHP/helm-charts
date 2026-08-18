@@ -21,6 +21,11 @@ spec:
     spec:
       backoffLimit: 0
       template:
+        {{- with $.Values.podAnnotations }}
+        metadata:
+          annotations:
+            {{- toYaml . | nindent 12 }}
+        {{- end }}
         spec:
           {{- with $.Values.priorityClassName }}
           priorityClassName: "{{ . }}"

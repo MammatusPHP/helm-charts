@@ -160,6 +160,9 @@ resources:
 
 priorityClassName: ""
 
+podAnnotations: {}
+#  example.com/annotation: value
+
 volumes: {}
 #  name:
 #    volumeMountOptions: {}
