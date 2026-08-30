@@ -16,7 +16,11 @@ spec:
     name: {{ .name }}
   idleReplicaCount: {{ .arguments.idleReplicaCount }}
   minReplicaCount: {{ .arguments.minReplicaCount }}
+{{- if and .Values (eq .Values.release "dev") }}
+  maxReplicaCount: 1
+{{- else }}
   maxReplicaCount: {{ .arguments.maxReplicaCount }}
+{{- end }}
   cooldownPeriod: {{ .arguments.cooldownPeriod }}
   advanced: {{ .arguments.advanced|toYaml|nindent 4 }}
   triggers:
