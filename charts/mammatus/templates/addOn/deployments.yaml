@@ -3,7 +3,7 @@
 {{- range .addOns }}
 {{- if eq .type "deployment" }}
 ---
-{{- include .helper (dict "arguments" .arguments "name" $deploymentName)  }}
+{{- include .helper (dict "arguments" .arguments "name" $deploymentName "Values" $.Values "Chart" $.Chart)  }}
 {{- end }}
 {{- end }}
 {{- end }}
