@@ -142,6 +142,15 @@ services: []
 #  - name: frontpage
 #    port: 6969
 #    group: some_service
+#  - name: github
+#    port: 9696
+#    group: some_service
+ingresses: []
+#  - name: frontpage
+#    service: frontpage
+#    host: www.example.test
+#    path: /
+#    annotations: {}
 
 timeZone: "Etc/UTC"
 env: {}
@@ -166,6 +175,12 @@ podLabels: {}
 
 podAnnotations: {}
 #  example.com/annotation: value
+
+ingressAnnotations: {}
+#  cert-manager.io/cluster-issuer: letsencrypt-prod
+#  kubernetes.io/tls-acme: "true"
+#  nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+#  nginx.ingress.kubernetes.io/ssl-redirect: "true"
 
 volumes: {}
 #  name:

@@ -1,0 +1,39 @@
+{{- $servicesByName := dict }}
+{{- range .Values.services }}
+{{- $_ := set $servicesByName .name . }}
+{{- end }}
+{{- range .Values.ingresses }}
+{{- $service := index $servicesByName .service }}
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .name }}
+  labels:
+    app.kubernetes.io/name: {{ include "mammatus.name" $ }}
+    app.kubernetes.io/instance: {{ .name }}
+  annotations:
+    {{- with $.Values.ingressAnnotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+    {{- with .annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - {{ .host | quote }}
+      secretName: tls-{{ .name }}
+  rules:
+    - host: {{ .host | quote }}
+      http:
+        paths:
+          - path: {{ .path }}
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .service }}
+                port:
+                  number: {{ $service.port }}
+{{- end }}
